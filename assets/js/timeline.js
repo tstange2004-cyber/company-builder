@@ -1,11 +1,8 @@
+/** Steuert die Programm-Timeline und hebt die beiden zentralen Aufbauphasen hervor. */
 (function () {
   "use strict";
 
-  var FOCUS_BY_LENS = {
-    startup: [1, 2],
-    investor: [0, 2, 4],
-    mentor: [0, 1]
-  };
+  var FOCUS_STEPS = [1, 2];
 
   function init() {
     var section = document.querySelector("[data-program]");
@@ -21,10 +18,6 @@
     var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var activeIndex = 0;
     var length = 0;
-
-    function state() {
-      return window.CBState || { lens: "startup", lang: "en" };
-    }
 
     function setPath(value) {
       if (!progressPath || !length) return;
@@ -67,21 +60,18 @@
       animateInvestors(index === 4);
     }
 
-    function applyLens() {
-      var selected = FOCUS_BY_LENS[state().lens] || FOCUS_BY_LENS.startup;
+    function applyFocus() {
       nodes.forEach(function (node, index) {
-        node.classList.toggle("is-focus", selected.indexOf(index) !== -1);
+        node.classList.toggle("is-focus", FOCUS_STEPS.indexOf(index) !== -1);
       });
-      applyCopy();
     }
 
     function applyCopy() {
-      var current = state();
-      var language = window.CB_LENS_COPY && window.CB_LENS_COPY[current.lang];
-      var lens = language && language[current.lens];
-      if (!lens) return;
+      var language = window.CBState ? window.CBState.lang : "en";
+      var copy = window.CB_PROGRAM_COPY && window.CB_PROGRAM_COPY[language];
+      if (!copy) return;
       copies.forEach(function (element, index) {
-        var next = lens.timeline[index];
+        var next = copy[index];
         if (!next || element.textContent === next) return;
         if (window.gsap && !reduced) {
           window.gsap.to(element, {
@@ -133,16 +123,15 @@
       setPath(1);
     }
 
-    window.addEventListener("cb:lens", applyLens);
     window.addEventListener("cb:language", applyCopy);
-    applyLens();
+    applyFocus();
+    applyCopy();
     activeIndex = -1;
     activate(0);
     document.documentElement.classList.add("timeline-ready");
   }
 
   window.CompanyBuilderTimeline = {
-    init: init,
-    focusByLens: FOCUS_BY_LENS
+    init: init
   };
 }());

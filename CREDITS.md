@@ -16,8 +16,9 @@ This website is an internal design draft. The rights status below records the so
 | `assets/img/ref-aperio-space.jpg` | https://highestbuilder.com/assets/img/ref-aperio-space.jpg | HIGHEST & FUTURY Company Builder / Aperio Space | Existing website asset; no separate licence stated. |
 | `assets/img/ref-dentero.jpg` | https://highestbuilder.com/assets/img/ref-dentero.jpg | HIGHEST & FUTURY Company Builder / Dentero | Existing website asset; no separate licence stated. |
 | `assets/img/ref-sustaincore.jpg` | https://highestbuilder.com/assets/img/ref-sustaincore.jpg | HIGHEST & FUTURY Company Builder / SustainCore | Existing website asset; no separate licence stated. |
+| `assets/video/hero-circuit-board.mp4` | Existing project asset | Source not documented | Internal draft asset; rights must be verified before publication. |
 
-No external stock photography is used. Particle systems, the program path, network, statistic icons and card micro-animations are generated locally with Canvas, inline SVG, CSS and JavaScript.
+Particle systems, the program path, network, statistic icons and card micro-animations are generated locally with Canvas, inline SVG, CSS and JavaScript.
 
 ## Fonts
 
@@ -28,4 +29,3 @@ No external stock photography is used. Particle systems, the program path, netwo
 
 - GSAP Core 3.13.0 and ScrollTrigger 3.13.0, downloaded from jsDelivr. Source: https://www.npmjs.com/package/gsap
 - Lenis 1.3.11, downloaded from jsDelivr. MIT License. Source: https://github.com/darkroomengineering/lenis
-

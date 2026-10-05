@@ -1,3 +1,4 @@
+/** Zeichnet und animiert die Partikelwelt im Startseiten-Hero. */
 (function () {
   "use strict";
 

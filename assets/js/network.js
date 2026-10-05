@@ -1,3 +1,4 @@
+/** Positioniert das Netzwerk, zeichnet Verbindungen und steuert die Filter. */
 (function () {
   "use strict";
 
@@ -10,7 +11,6 @@
     var context = canvas.getContext("2d");
     var nodes = Array.prototype.slice.call(section.querySelectorAll("[data-network-node]"));
     var filters = Array.prototype.slice.call(section.querySelectorAll("[data-network-filter]"));
-    var hasLensControl = Boolean(document.querySelector("[data-lens-control]"));
     var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var positions = [];
     var enabled = { partner: true, investor: true, mentor: true, center: true };
@@ -85,11 +85,7 @@
 
     function groupAlpha(group) {
       if (!enabled[group]) return 0;
-      if (!hasLensControl) return group === "partner" ? .82 : group === "investor" ? .56 : .42;
-      var lens = (window.CBState && window.CBState.lens) || "startup";
-      if (lens === "investor") return group === "investor" ? .9 : group === "partner" ? .35 : .12;
-      if (lens === "mentor") return group === "mentor" ? .78 : group === "partner" ? .3 : .1;
-      return group === "partner" ? .85 : group === "investor" ? .35 : .09;
+      return group === "partner" ? .82 : group === "investor" ? .56 : .42;
     }
 
     function drawLine(from, to, alpha, widthValue, now, index) {
@@ -184,26 +180,6 @@
       });
     }
 
-    function applyLens() {
-      if (!hasLensControl) {
-        delete map.dataset.activeLens;
-        nodes.forEach(function (node) {
-          node.classList.remove("is-lens", "is-support");
-        });
-        draw(performance.now());
-        return;
-      }
-      var lens = (window.CBState && window.CBState.lens) || "startup";
-      map.dataset.activeLens = lens;
-      nodes.forEach(function (node) {
-        var group = node.dataset.group;
-        var highlighted = group === lens || (lens === "startup" && group === "partner");
-        node.classList.toggle("is-lens", highlighted);
-        node.classList.toggle("is-support", lens === "startup" && group === "investor");
-      });
-      draw(performance.now());
-    }
-
     function applyFilters() {
       nodes.forEach(function (node) {
         var group = node.dataset.group;
@@ -241,7 +217,6 @@
     window.addEventListener("orientationchange", scheduleArrange, { passive: true });
     window.addEventListener("load", scheduleArrange, { once: true });
     window.addEventListener("pageshow", scheduleArrange);
-    window.addEventListener("cb:lens", applyLens);
 
     if ("ResizeObserver" in window) {
       new ResizeObserver(function () { scheduleArrange(); }).observe(map);
@@ -251,7 +226,6 @@
     /* Apply the final map width before the first measurement. */
     document.documentElement.classList.add("network-ready");
     arrange();
-    applyLens();
     applyFilters();
     requestAnimationFrame(scheduleArrange);
     if (!hasObserver) {

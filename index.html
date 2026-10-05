@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#1c1c1c">
   <title>HIGHEST &amp; FUTURY Company Builder</title>
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/homepage.css">
 </head>
 <body>
 
@@ -19,6 +19,7 @@
 
   <div class="page-wipe" aria-hidden="true"></div>
 
+  <!-- Globale Navigation der animierten Startseite -->
   <header class="site-header" data-header>
     <a class="brand" href="#top" aria-label="Company Builder home">
       <img src="assets/img/company-builder-logo-white.svg" alt="HIGHEST and FUTURY Company Builder" width="300" height="112">
@@ -38,9 +39,14 @@
     </div>
   </header>
 
+  <!-- Programmgeschichte, Referenzen, Netzwerk und Bewerbung -->
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title" data-hero>
       <div class="hero-stage">
+        <!-- Ruhiger Realfilm-Hintergrund; Text und Partikelsystem bleiben klar im Vordergrund. -->
+        <video class="hero-video" data-hero-video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+          <source src="assets/video/hero-circuit-board.mp4" type="video/mp4">
+        </video>
         <canvas class="hero-canvas" data-hero-canvas aria-hidden="true"></canvas>
         <div class="hero-grid" aria-hidden="true"></div>
         <div class="hero-content shell">
@@ -148,7 +154,7 @@
     </section>
 
     <section class="section network-section" id="network" aria-labelledby="network-title" data-network><div class="shell">
-      <div class="section-heading reveal"><p class="eyebrow" data-i18n="networkEyebrow">Network effect</p><h2 id="network-title" data-i18n="networkTitle">A company is never built alone.</h2><p class="section-lead lens-copy" data-lens-copy="networkIntro">Partners and investors expand the path around your team.</p></div>
+      <div class="section-heading reveal"><p class="eyebrow" data-i18n="networkEyebrow">Network effect</p><h2 id="network-title" data-i18n="networkTitle">A company is never built alone.</h2><p class="section-lead" data-i18n="networkIntro">Partners and investors expand the path around your team.</p></div>
       <div class="network-legend" aria-label="Network filters"><label><input type="checkbox" checked data-network-filter="partner"><span></span><b data-i18n="partners">Partners</b></label><label><input type="checkbox" checked data-network-filter="investor"><span></span><b data-i18n="investors">Investors</b></label><label><input type="checkbox" checked data-network-filter="mentor"><span></span><b data-i18n="mentors">Mentors</b></label></div>
       <div class="network-map" data-network-map><canvas data-network-canvas aria-hidden="true"></canvas><div class="network-nodes" data-network-nodes>
         <button class="network-node center" type="button" data-network-node data-group="center" data-name="Company Builder" aria-label="Company Builder"><img src="assets/img/logo-company-builder.png" alt="" width="400" height="149"><b>Company Builder</b></button>
@@ -193,6 +199,7 @@
     </div></section>
   </main>
 
+  <!-- Einheitlicher Footer auf allen Seiten -->
   <footer class="site-footer">
     <div class="footer-main">
       <div class="footer-brand"><img class="footer-logo" src="assets/img/company-builder-logo-white.svg" alt="HIGHEST &amp; FUTURY Company Builder" width="300" height="112"><p data-i18n="footerProgram">A venture-building program by HIGHEST GmbH, TU Darmstadt and Futury.</p><div class="partner-logos" role="group" aria-label="TU Darmstadt, HIGHEST and Futury"><span class="partner-logo-crop partner-logo-tu"><img src="assets/img/partners-tud-highest-futury.jpg" alt="TU Darmstadt" width="1238" height="210" loading="lazy"></span><img class="partner-logo-highest" src="assets/img/logo-highest.svg" alt="HIGHEST" width="328" height="180" loading="lazy"><span class="partner-logo-crop partner-logo-futury"><img src="assets/img/partners-tud-highest-futury.jpg" alt="Futury" width="1238" height="210" loading="lazy"></span></div></div>

@@ -1,3 +1,4 @@
+/** Initialisiert Sprache, Navigation und Animationen der Startseite. */
 (function () {
   "use strict";
 
@@ -18,8 +19,17 @@
     }
   }
 
+  function initHeroVideo() {
+    var video = document.querySelector("[data-hero-video]");
+    if (!video) return;
+    if (reducedMotion) {
+      video.pause();
+      return;
+    }
+    video.play().catch(function () { /* Autoplay kann durch Browsereinstellungen blockiert sein. */ });
+  }
+
   window.CBState = {
-    lens: "startup",
     lang: readStoredLanguage()
   };
 
@@ -40,69 +50,10 @@
     });
     document.title = language === "de" ? "HIGHEST & FUTURY Company Builder" : "HIGHEST & FUTURY Company Builder";
     try { localStorage.setItem("company-builder-language", language); } catch (error) { /* storage may be unavailable */ }
-    applyLensCopy(false);
     splitHeroTitle(announce !== false);
     if (announce !== false) {
       window.dispatchEvent(new CustomEvent("cb:language", { detail: { lang: language } }));
     }
-  }
-
-  function applyLensCopy(animate) {
-    var language = window.CB_LENS_COPY && window.CB_LENS_COPY[window.CBState.lang];
-    var copy = language && language[window.CBState.lens];
-    if (!copy) return;
-    document.querySelectorAll("[data-lens-copy]").forEach(function (element) {
-      var key = element.dataset.lensCopy;
-      if (!copy[key] || element.textContent === copy[key]) return;
-      if (animate && window.gsap && !reducedMotion) {
-        window.gsap.to(element, {
-          opacity: 0,
-          y: -16,
-          scale: .94,
-          filter: "blur(9px)",
-          duration: .18,
-          onComplete: function () {
-            element.textContent = copy[key];
-            window.gsap.fromTo(element,
-              { opacity: 0, y: 20, scale: 1.08, filter: "blur(9px)" },
-              { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: .48, ease: "expo.out" }
-            );
-          }
-        });
-      } else {
-        element.textContent = copy[key];
-      }
-    });
-  }
-
-  function setLens(lens, announce) {
-    if (["startup", "investor", "mentor"].indexOf(lens) === -1) return;
-    window.CBState.lens = lens;
-    document.querySelectorAll("[data-lens]").forEach(function (button) {
-      button.setAttribute("aria-checked", button.dataset.lens === lens ? "true" : "false");
-      button.tabIndex = button.dataset.lens === lens ? 0 : -1;
-    });
-    applyLensCopy(true);
-    if (announce !== false) {
-      window.dispatchEvent(new CustomEvent("cb:lens", { detail: { lens: lens } }));
-    }
-  }
-
-  function initLensControls() {
-    document.querySelectorAll("[data-lens-control]").forEach(function (control) {
-      var buttons = Array.prototype.slice.call(control.querySelectorAll("[data-lens]"));
-      buttons.forEach(function (button, index) {
-        button.addEventListener("click", function () { setLens(button.dataset.lens, true); });
-        button.addEventListener("keydown", function (event) {
-          var delta = event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : event.key === "ArrowLeft" || event.key === "ArrowUp" ? -1 : 0;
-          if (!delta) return;
-          event.preventDefault();
-          var next = (index + delta + buttons.length) % buttons.length;
-          setLens(buttons[next].dataset.lens, true);
-          buttons[next].focus();
-        });
-      });
-    });
   }
 
   function splitHeroTitle(animate) {
@@ -205,18 +156,11 @@
 
   function initHeader() {
     var header = document.querySelector("[data-header]");
-    var sticky = document.querySelector("[data-sticky-lens]");
-    var hero = document.querySelector("[data-hero]");
     if (!header) return;
     var ticking = false;
     function update() {
       var y = window.scrollY;
       header.classList.toggle("scrolled", y > 26);
-      if (sticky && hero) {
-        var show = y > hero.offsetTop + hero.offsetHeight - window.innerHeight * .7;
-        sticky.classList.toggle("is-visible", show);
-        sticky.setAttribute("aria-hidden", show ? "false" : "true");
-      }
       ticking = false;
     }
     window.addEventListener("scroll", function () {
@@ -501,7 +445,6 @@
   function init() {
     if (window.gsap && window.ScrollTrigger) window.gsap.registerPlugin(window.ScrollTrigger);
     applyLanguage(window.CBState.lang, false);
-    setLens("startup", false);
     document.querySelectorAll("[data-language]").forEach(function (button) {
       button.addEventListener("click", function () { applyLanguage(button.dataset.language, true); });
     });
@@ -517,6 +460,7 @@
     initPortalTilt();
     initPageTransitions();
     initCountdown();
+    initHeroVideo();
     if (window.CompanyBuilderHero) window.CompanyBuilderHero.init();
     if (window.CompanyBuilderTimeline) window.CompanyBuilderTimeline.init();
     if (window.CompanyBuilderNetwork) window.CompanyBuilderNetwork.init();

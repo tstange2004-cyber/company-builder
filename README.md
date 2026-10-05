@@ -1,6 +1,6 @@
-# HIGHEST & FUTURY Company Builder — homepage concept
+# HIGHEST & FUTURY Company Builder
 
-This is a static, self-contained homepage concept. It runs without a build process, package manager or web server.
+This is a static, self-contained website with an animated homepage and classic audience pages. It runs without a build process or package manager.
 
 ## Start
 
@@ -9,10 +9,18 @@ Open `index.html` with a double-click. All fonts, images and animation libraries
 ## Structure
 
 ```text
-index.html                  Homepage markup and all readable fallback content
-assets/css/styles.css       Visual system, layouts and responsive states
-assets/js/main.js           Initialisation, language, audience lens and UI behaviour
-assets/js/i18n.js           English/German and lens-dependent copy
+index.html                  Animated homepage and readable fallback content
+startups.html               Information for start-ups
+investoren.html             Information for investors and VCs
+mentorinnen.html            Information for mentors
+contact.html                Team and direct contacts
+impressum.html              Imprint
+datenschutz.html            Privacy information
+assets/css/homepage.css     Homepage design and responsive states
+assets/css/subpages.css     Shared design for all classic subpages
+assets/js/main.js           Initialisation, language and UI behaviour
+assets/js/subpages.js       Header, mobile navigation and reveals on subpages
+assets/js/i18n.js           English and German homepage copy
 assets/js/hero.js           Canvas particle formations
 assets/js/timeline.js       Program path and five checkpoints
 assets/js/network.js        Network layout, filters and canvas connections
@@ -20,9 +28,8 @@ assets/js/vendor/           Local GSAP, ScrollTrigger and Lenis files
 assets/fonts/               Locally hosted WOFF2 fonts
 assets/img/                 Local image assets
 CREDITS.md                  Sources and rights status
+scripts/validate-site.mjs   Local consistency check
 ```
-
-The existing subpages are left untouched. The three portal cards use the equivalent filenames already present in this folder: `startups.html`, `investoren.html` and `mentorinnen.html`.
 
 ## Replace images
 
@@ -37,18 +44,11 @@ If a gallery image cannot load, the page hides the broken image and displays a l
 
 Static English fallback text lives in `index.html`. English and German UI strings live in `assets/js/i18n.js` under `CB_I18N`. Elements are connected by matching `data-i18n` keys.
 
-Audience-dependent texts live in `CB_LENS_COPY`. Each language contains the three keys `startup`, `investor` and `mentor`. Timeline descriptions are ordered from SCOUT to NEXT.
-
-## Edit the audience lens
-
-- The global state and controls are managed in `assets/js/main.js`.
-- Lens-specific timeline highlights are in `FOCUS_BY_LENS` at the top of `assets/js/timeline.js`.
-- Network highlighting is in `applyLens()` in `assets/js/network.js`.
-- The matching portal card uses `data-portal="startup|investor|mentor"`.
+Timeline descriptions live in `CB_PROGRAM_COPY` and are ordered from SCOUT to NEXT.
 
 ## Motion and accessibility
 
-With `prefers-reduced-motion: reduce`, smooth scrolling, pinned scenes, looping ticker motion, parallax and moving particles are disabled. All content remains readable without JavaScript. Keyboard users can operate both lens controls, timeline nodes, network filters and links.
+With `prefers-reduced-motion: reduce`, smooth scrolling, pinned scenes, looping ticker motion, parallax, video playback and moving particles are disabled. All content remains readable without JavaScript. Keyboard users can operate timeline nodes, network filters and links.
 
 ## Application deadline
 

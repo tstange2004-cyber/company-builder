@@ -1,3 +1,4 @@
+/** Deutsche und englische Texte der Startseite. */
 (function () {
   "use strict";
 
@@ -12,10 +13,6 @@
       navInvestors: "Investors",
       navMentors: "Mentors",
       applyNow: "Apply now",
-      lensShort: "Perspective",
-      lensStartupShort: "Start-up",
-      lensInvestorShort: "Investor",
-      lensMentorShort: "Mentor",
       heroProgram: "06-month Deep-Tech venture builder",
       heroTitle: "From Science to Scalable Startups.",
       heroLead: "Over 6 months, we guide Deep-Tech teams from proof-of-concept to an investable company — with structured venture building, 1:1 mentoring and the opportunity for a first investment ticket of up to €50,000.",
@@ -23,10 +20,6 @@
       freeChip: "Grant-funded, free of charge",
       applyArrow: "Apply now →",
       becomeMentor: "Become a mentor",
-      lensLabel: "Choose your perspective",
-      lensStartup: "Start-up",
-      lensInvestor: "Investor / VC",
-      lensMentor: "Mentor",
       scroll: "Scroll to transform",
       glanceEyebrow: "At a glance",
       glanceTitle: "A focused path from proof-of-concept to investment readiness.",
@@ -69,6 +62,7 @@
       swipeHint: "Swipe or scroll to explore",
       networkEyebrow: "Network effect",
       networkTitle: "A company is never built alone.",
+      networkIntro: "Partners and investors expand the path around your team.",
       partners: "Partners",
       investors: "Investors",
       mentors: "Mentors",
@@ -113,10 +107,6 @@
       navInvestors: "Investor:innen",
       navMentors: "Mentor:innen",
       applyNow: "Jetzt bewerben",
-      lensShort: "Perspektive",
-      lensStartupShort: "Start-up",
-      lensInvestorShort: "Investor:in",
-      lensMentorShort: "Mentor:in",
       heroProgram: "06-monatiger Deep-Tech Venture Builder",
       heroTitle: "Von der Wissenschaft zum skalierbaren Start-up.",
       heroLead: "In 6 Monaten begleiten wir Deep-Tech-Teams vom Proof of Concept zum investierbaren Unternehmen — mit strukturiertem Venture Building, 1:1-Mentoring und der Chance auf ein erstes Investmentticket von bis zu 50.000 €.",
@@ -124,10 +114,6 @@
       freeChip: "Gefördert und kostenfrei",
       applyArrow: "Jetzt bewerben →",
       becomeMentor: "Mentor:in werden",
-      lensLabel: "Perspektive wählen",
-      lensStartup: "Start-up",
-      lensInvestor: "Investor:in / VC",
-      lensMentor: "Mentor:in",
       scroll: "Scrollen, um zu transformieren",
       glanceEyebrow: "Auf einen Blick",
       glanceTitle: "Ein fokussierter Weg vom Proof of Concept zur Investment Readiness.",
@@ -170,6 +156,7 @@
       swipeHint: "Wischen oder scrollen zum Entdecken",
       networkEyebrow: "Netzwerkeffekt",
       networkTitle: "Kein Unternehmen entsteht allein.",
+      networkIntro: "Partner und Investor:innen erweitern den Weg rund um euer Team.",
       partners: "Partner",
       investors: "Investor:innen",
       mentors: "Mentor:innen",
@@ -206,82 +193,21 @@
     }
   };
 
-  window.CB_LENS_COPY = {
-    en: {
-      startup: {
-        heroEyebrow: "For scientific teams ready to build",
-        heroSummary: "Build an investable company around your technology.",
-        networkIntro: "Partners and investors expand the path around your team.",
-        timeline: [
-          "Submit your pitch deck. A jury of mentors and investors selects the teams, five per batch.",
-          "Business model, market validation, team building and investor readiness, with 1:1 mentoring and up to €5,000 mentoring budget per team.",
-          "Pitch to the Investment Committee. A possible first ticket of up to €50,000 as convertible loan and/or silent partnership. Not guaranteed.",
-          "Market entry, preparation of follow-on financing, industry and customer connections.",
-          "Warm intros to leading VCs and a lasting community."
-        ]
-      },
-      investor: {
-        heroEyebrow: "For investors seeking curated Deep-Tech deal flow",
-        heroSummary: "Meet pre-selected teams as they become investment-ready.",
-        networkIntro: "Your lens highlights the curated investor ring around each venture.",
-        timeline: [
-          "Curated deal flow: a jury of mentors and investors pre-selects the teams.",
-          "Teams are built toward investor readiness in a structured process: market, team, business model.",
-          "After three months, private investors decide independently on up to €50,000 per team (market-standard convertible loan and/or silent partnership), based on progress, team maturity and market feedback.",
-          "Teams push into the market and prepare follow-on financing; a Pre-Seed ticket from FUTURY CAPITAL is possible after six months.",
-          "Warm introductions from the network to investors such as BMH, D11Z, earlybird, FUTURY Capital, HTGF, First Momentum Ventures, STS Ventures, TT49 and U2V."
-        ]
-      },
-      mentor: {
-        heroEyebrow: "For operators who turn experience into progress",
-        heroSummary: "Guide exceptional scientific teams through decisive venture-building moments.",
-        networkIntro: "Your lens reveals the people whose experience accelerates every team.",
-        timeline: [
-          "Mentors and investors form the selection jury for the teams you may later support.",
-          "Structured 1:1 mentoring with clear goals and review rhythm, plus peer formats: Mentor Exchange, Best Practice and Learning Sessions.",
-          "Progress, team maturity and market feedback decide. Your structured feedback goes to the program team.",
-          "Hands-on support on go-to-market, fundraising and execution.",
-          "Teams stay part of the HIGHEST and FUTURY community, and so does your network."
-        ]
-      }
-    },
-    de: {
-      startup: {
-        heroEyebrow: "Für wissenschaftliche Teams, die aufbauen wollen",
-        heroSummary: "Baut rund um eure Technologie ein investierbares Unternehmen auf.",
-        networkIntro: "Partner und Investor:innen erweitern den Weg rund um euer Team.",
-        timeline: [
-          "Reicht euer Pitch Deck ein. Eine Jury aus Mentor:innen und Investor:innen wählt die Teams aus — fünf pro Batch.",
-          "Geschäftsmodell, Marktvalidierung, Teamaufbau und Investor Readiness — mit 1:1-Mentoring und bis zu 5.000 € Mentoringbudget pro Team.",
-          "Pitch vor dem Investment Committee. Möglich ist ein erstes Ticket von bis zu 50.000 € als Wandeldarlehen und/oder stille Beteiligung. Nicht garantiert.",
-          "Markteintritt, Vorbereitung der Anschlussfinanzierung sowie Kontakte zu Industrie und Kund:innen.",
-          "Warme Intros zu führenden VCs und eine langfristige Community."
-        ]
-      },
-      investor: {
-        heroEyebrow: "Für Investor:innen auf der Suche nach kuratiertem Deep-Tech-Dealflow",
-        heroSummary: "Trefft vorausgewählte Teams auf ihrem Weg zur Investment Readiness.",
-        networkIntro: "Eure Perspektive hebt den kuratierten Investor:innenring um jedes Venture hervor.",
-        timeline: [
-          "Kuratierter Dealflow: Eine Jury aus Mentor:innen und Investor:innen wählt die Teams vorab aus.",
-          "Teams werden in einem strukturierten Prozess zur Investor Readiness geführt: Markt, Team und Geschäftsmodell.",
-          "Nach drei Monaten entscheiden private Investor:innen unabhängig über bis zu 50.000 € pro Team (marktübliches Wandeldarlehen und/oder stille Beteiligung) — anhand von Fortschritt, Teamreife und Marktfeedback.",
-          "Die Teams gehen in den Markt und bereiten die Anschlussfinanzierung vor; nach sechs Monaten ist ein Pre-Seed-Ticket von FUTURY CAPITAL möglich.",
-          "Warme Intros aus dem Netzwerk zu Investor:innen wie BMH, D11Z, earlybird, FUTURY Capital, HTGF, First Momentum Ventures, STS Ventures, TT49 und U2V."
-        ]
-      },
-      mentor: {
-        heroEyebrow: "Für Macher:innen, die Erfahrung in Fortschritt verwandeln",
-        heroSummary: "Begleitet außergewöhnliche wissenschaftliche Teams durch entscheidende Venture-Building-Momente.",
-        networkIntro: "Eure Perspektive zeigt die Menschen, deren Erfahrung jedes Team beschleunigt.",
-        timeline: [
-          "Mentor:innen und Investor:innen bilden die Auswahljury für die Teams, die ihr später unterstützen könnt.",
-          "Strukturiertes 1:1-Mentoring mit klaren Zielen und Review-Rhythmus plus Peer-Formate: Mentor Exchange, Best Practice und Learning Sessions.",
-          "Fortschritt, Teamreife und Marktfeedback entscheiden. Euer strukturiertes Feedback geht an das Programmteam.",
-          "Praxisnahe Unterstützung bei Go-to-Market, Fundraising und Umsetzung.",
-          "Die Teams bleiben Teil der HIGHEST- und FUTURY-Community — und euer Netzwerk ebenso."
-        ]
-      }
-    }
+  // Die Timeline hat auf der Startseite eine feste Programm-Perspektive.
+  window.CB_PROGRAM_COPY = {
+    en: [
+      "Submit your pitch deck. A jury of mentors and investors selects the teams, five per batch.",
+      "Business model, market validation, team building and investor readiness, with 1:1 mentoring and up to €5,000 mentoring budget per team.",
+      "Pitch to the Investment Committee. A possible first ticket of up to €50,000 as convertible loan and/or silent partnership. Not guaranteed.",
+      "Market entry, preparation of follow-on financing, industry and customer connections.",
+      "Warm intros to leading VCs and a lasting community."
+    ],
+    de: [
+      "Reicht euer Pitch Deck ein. Eine Jury aus Mentor:innen und Investor:innen wählt die Teams aus — fünf pro Batch.",
+      "Geschäftsmodell, Marktvalidierung, Teamaufbau und Investor Readiness — mit 1:1-Mentoring und bis zu 5.000 € Mentoringbudget pro Team.",
+      "Pitch vor dem Investment Committee. Möglich ist ein erstes Ticket von bis zu 50.000 € als Wandeldarlehen und/oder stille Beteiligung. Nicht garantiert.",
+      "Markteintritt, Vorbereitung der Anschlussfinanzierung sowie Kontakte zu Industrie und Kund:innen.",
+      "Warme Intros zu führenden VCs und eine langfristige Community."
+    ]
   };
 }());
