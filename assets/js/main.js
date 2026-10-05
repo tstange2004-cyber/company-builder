@@ -26,6 +26,8 @@
       video.pause();
       return;
     }
+    // Das ruhige Hintergrundmotiv läuft bewusst deutlich langsamer als das Original.
+    video.playbackRate = 0.45;
     video.play().catch(function () { /* Autoplay kann durch Browsereinstellungen blockiert sein. */ });
   }
 
