@@ -112,23 +112,6 @@ dd {
   border: 0;
 }
 
-.skip-link {
-  position: fixed;
-  z-index: 500;
-  top: 0.75rem;
-  left: 0.75rem;
-  transform: translateY(-160%);
-  padding: 0.75rem 1rem;
-  color: var(--ink);
-  background: var(--accent);
-  border-radius: 4px;
-  font-weight: 700;
-}
-
-.skip-link:focus {
-  transform: translateY(0);
-}
-
 /* Header */
 .site-header {
   position: fixed;
@@ -147,6 +130,18 @@ dd {
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(10px) saturate(130%);
   -webkit-backdrop-filter: blur(10px) saturate(130%);
+}
+
+.with-arrow::after {
+  display: inline-block;
+  width: 0.78em;
+  height: 0.78em;
+  margin-left: 0.38em;
+  background: currentColor;
+  content: "";
+  vertical-align: 0.02em;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 10 10 2M4 2h6v6' fill='none' stroke='black' stroke-width='1.7'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 10 10 2M4 2h6v6' fill='none' stroke='black' stroke-width='1.7'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .brand {
@@ -1918,14 +1913,18 @@ a:focus-visible .link-mark {
   }
 
   .main-nav {
-    position: fixed;
-    inset: var(--header-h) 0 0;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
+    height: calc(100dvh - var(--header-h));
     gap: 0;
     padding: 1.5rem 20px;
+    overflow-y: auto;
     color: var(--white);
     background: var(--dark);
     opacity: 0;
@@ -1945,6 +1944,10 @@ a:focus-visible .link-mark {
     color: var(--white);
     border-bottom: 1px solid rgba(255, 255, 255, 0.14);
     font-size: 1.22rem;
+  }
+
+  .main-nav a[aria-current="page"] {
+    color: var(--accent);
   }
 
   .main-nav a::after {
@@ -2429,7 +2432,9 @@ a:focus-visible .link-mark {
     align-items: center;
     justify-content: center;
     gap: clamp(.8rem, 2vw, 1.5rem);
+    height: auto;
     padding: 0;
+    overflow: visible;
     color: var(--ink);
     background: transparent;
     opacity: 1;

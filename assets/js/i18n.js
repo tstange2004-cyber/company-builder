@@ -3,7 +3,6 @@
 
   window.CB_I18N = {
     en: {
-      skip: "Skip to content",
       introSkip: "Skip intro",
       navProgram: "Program",
       navProof: "Proof",
@@ -88,7 +87,7 @@
       minutes: "Minutes",
       seconds: "Seconds",
       closed: "Applications for Batch 2 are closed. Contact us for the next opportunity.",
-      applicationPrivacy: "Privacy information for applications ↗",
+      applicationPrivacy: "Privacy information for applications",
       applyMeta: "Free of charge (de-minimis aid approx. €8,400) · Hesse, Rhine-Main & Germany-wide · No finished product required",
       date1: "Application phase",
       date2: "Pitch Day & Jury Selection",
@@ -105,7 +104,6 @@
       privacy: "Privacy"
     },
     de: {
-      skip: "Zum Inhalt springen",
       introSkip: "Intro überspringen",
       navProgram: "Programm",
       navProof: "Referenzen",
@@ -190,7 +188,7 @@
       minutes: "Minuten",
       seconds: "Sekunden",
       closed: "Die Bewerbung für Batch 2 ist geschlossen. Kontaktiert uns für die nächste Gelegenheit.",
-      applicationPrivacy: "Datenschutzinformationen für Bewerbungen ↗",
+      applicationPrivacy: "Datenschutzinformationen für Bewerbungen",
       applyMeta: "Kostenfrei (De-minimis-Beihilfe ca. 8.400 €) · Hessen, Rhein-Main & deutschlandweit · Kein fertiges Produkt erforderlich",
       date1: "Bewerbungsphase",
       date2: "Pitch Day & Jury-Auswahl",

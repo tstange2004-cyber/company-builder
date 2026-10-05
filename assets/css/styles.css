@@ -160,22 +160,6 @@ h3 {
   content: "";
 }
 
-.skip-link {
-  position: fixed;
-  z-index: 2000;
-  top: 12px;
-  left: 12px;
-  padding: 10px 14px;
-  color: #111;
-  background: var(--accent);
-  transform: translateY(-180%);
-  transition: transform .2s;
-}
-
-.skip-link:focus {
-  transform: none;
-}
-
 .site-header {
   position: fixed;
   z-index: 90;
@@ -1670,9 +1654,18 @@ h3 {
   background: #fffdf7;
 }
 
+.with-arrow::after,
 .network-node.is-link b::after {
+  display: inline-block;
+  width: 0.78em;
+  height: 0.78em;
+  margin-left: 0.38em;
+  background: currentColor;
   color: var(--accent);
-  content: " ↗";
+  content: "";
+  vertical-align: 0.02em;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 10 10 2M4 2h6v6' fill='none' stroke='black' stroke-width='1.7'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 10 10 2M4 2h6v6' fill='none' stroke='black' stroke-width='1.7'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .network-node:hover b,
